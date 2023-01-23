@@ -23,7 +23,7 @@ jobs:
           clean: true
       - uses: actions/setup-node@v3
       - name: upm subtree split
-        if: ${{ github.ref == 'refs/heads/main' || github.base_ref == 'main' }}
+        if: ${{ github.ref == 'refs/heads/main' || github.base_ref == 'main' || github.ref == 'refs/heads/master' || github.base_ref == 'master' }}
         run: |
           $packageDir = Get-Item -Path "Fonts" | Select-Object -ExpandProperty FullName
           $packageDir = $packageDir.replace('${{ github.workspace }}/','')
