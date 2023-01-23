@@ -25,7 +25,7 @@ jobs:
       - name: upm subtree split
         if: ${{ github.ref == 'refs/heads/main' || github.base_ref == 'main' || github.ref == 'refs/heads/master' || github.base_ref == 'master' }}
         run: |
-          $packageDir = Get-Item -Path "Fonts" | Select-Object -ExpandProperty FullName
+          $packageDir = Get-Item -Path "font" | Select-Object -ExpandProperty FullName
           $packageDir = $packageDir.replace('${{ github.workspace }}/','')
           Write-Host "::group:: $packageDir subtree split"
           git subtree split --prefix="$packageDir" -b fonts
